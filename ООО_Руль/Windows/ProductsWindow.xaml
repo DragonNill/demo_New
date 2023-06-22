@@ -1,0 +1,39 @@
+﻿<Window x:Class="ООО_Руль.Windows.ProductsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ООО_Руль.Windows"
+        mc:Ignorable="d"
+        Title="Список товаров" Height="450" MinHeight="425" MinWidth="775" Width="800" Closing="Window_Closing" SizeChanged="Window_SizeChanged">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Label FontSize="14">Поиск</Label>
+            <TextBox Grid.Row="1" FontSize="14" Width="350" HorizontalAlignment="Left" x:Name="Search_textBox" TextChanged="Search_textBox_TextChanged"></TextBox>
+        </Grid>
+        <ListView x:Name="Products_listView" HorizontalContentAlignment="Center" Grid.Row="1">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить к заказу" x:Name="AddToOrder_menuItem" Click="AddToOrder_menuItem_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Back_button" FontSize="14" Click="Back_button_Click">Назад</Button>
+            <Button x:Name="GoToOrder_button" FontSize="14" Grid.Column="1" Visibility="Hidden" Click="GoToOrder_button_Click">Перейти к заказу</Button>
+        </Grid>
+    </Grid>
+</Window>
